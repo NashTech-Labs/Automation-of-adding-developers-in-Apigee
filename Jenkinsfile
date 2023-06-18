@@ -124,7 +124,7 @@ pipeline {
           checkout([$class: 'GitSCM', branches: [[name: "*/main"]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'Automation-of-adding-developers-in-Apigee']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/knoldus/Automation-of-adding-developers-in-Apigee.git']]])
 
 
-            sh "$APIGEE_CLI_DIR/apigeecli developers import -f ${WORKSPACE}/Automation-of-adding-developers-in-Apigee/${params.ORGANISATION}/developers/${params.DEVELOPER_FILE_NAME}.json -o ${params.ORGANISATION} -t ${env.TOKEN}"
+            sh "$APIGEE_CLI_DIR/apigeecli developers import -f ${WORKSPACE}/Automation-of-adding-developers-in-Apigee/developers/${params.DEVELOPER_FILE_NAME}.json -o ${params.ORGANISATION} -t ${env.TOKEN}"
 
              }
            }
