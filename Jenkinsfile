@@ -108,7 +108,7 @@ pipeline {
         stage('Logging into Google Cloud and Get Access Token') {
           steps {
             script {
-                withCredentials([file(credentialsId: 'GAccountKey', variable: 'GOOGLE_SERVICE_ACCOUNT_KEY')]) {
+                withCredentials([file(credentialsId: '<credential_id>', variable: 'GOOGLE_SERVICE_ACCOUNT_KEY')]) {
                 sh '${GCLOUD_DIR}/gcloud auth activate-service-account --key-file ${GOOGLE_SERVICE_ACCOUNT_KEY}'
                 env.TOKEN = sh([script: "${GCLOUD_DIR}/gcloud auth print-access-token", returnStdout: true ]).trim()
               }
